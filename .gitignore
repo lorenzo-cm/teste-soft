@@ -1,0 +1,10 @@
+# Pytest files
+.pytest
+.cov*
+
+# Python files
+__pycache__
+
+# Vscode files
+.vscode
+.Dstore
