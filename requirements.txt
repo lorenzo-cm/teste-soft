@@ -6,3 +6,4 @@ pydantic
 pytest-mock
 httpx # necessary for tests
 requests
+pydantic-settings
