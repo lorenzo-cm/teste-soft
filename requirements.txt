@@ -3,4 +3,4 @@ uvicorn
 pytest
 pytest-cov
 pydantic
-httpx
+pytest-mock
