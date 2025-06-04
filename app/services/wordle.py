@@ -30,7 +30,7 @@ class Wordle:
         """
         if self.game_over:
             raise ValueError("Game is already over. Please start a new game.")
-        
+
         guess = guess.strip()
 
         # Valida a tentativa do jogador
@@ -90,20 +90,3 @@ class Wordle:
             "game_over": self.game_over,
             "won": self.won,
         }
-
-
-if __name__ == "__main__":
-    # Example usage
-    word_list = ["apple", "grape", "peach", "berry", "melon"]
-    game = Wordle(word_list, game_id=1)
-    print(game.target_word)  # For testing purposes, to see the target word
-
-    # sessao iterativa para jogar
-
-    while not game.game_over:
-        try:
-            guess = input("Enter your 5-letter guess: ")
-            result = game.guess(guess)
-            print(result)
-        except ValueError as e:
-            print(e)
