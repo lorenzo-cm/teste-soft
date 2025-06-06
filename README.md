@@ -44,3 +44,10 @@ GET /api/v1/wordle/games/{game_id}
 - Sistema de feedback: "correct", "present", "not present"
 - Máximo 6 tentativas por jogo
 - Palavra revelada quando o jogo termina
+
+## Tecnologias
+
+- Fastapi
+- Pydantic
+- Pytest
+- Uvicorn
