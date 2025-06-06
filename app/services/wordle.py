@@ -64,19 +64,27 @@ class Wordle:
         - 'present' se a letra está na palavra, mas na posição errada
         - 'not present' se a letra não está na palavra
         """
-        result = []
+        result = [""] * 5
         count_letters: dict[str, int] = {}
+
+        # Contar letras na palavra alvo
         for letter in self.target_word:
             count_letters[letter] = count_letters.get(letter, 0) + 1
 
+        # Primeira passada: marcar letras corretas
         for i, letter in enumerate(guess):
             if letter == self.target_word[i]:
-                result.append("correct")
-            elif letter in self.target_word and not count_letters[letter] == 0:
-                result.append("present")
+                result[i] = "correct"
                 count_letters[letter] -= 1
-            else:
-                result.append("not present")
+
+        # Segunda passada: marcar letras presentes mas na posição errada
+        for i, letter in enumerate(guess):
+            if result[i] == "":  # Ainda não foi marcada
+                if letter in count_letters and count_letters[letter] > 0:
+                    result[i] = "present"
+                    count_letters[letter] -= 1
+                else:
+                    result[i] = "not present"
 
         return result
 

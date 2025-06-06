@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from .api.main_router import main_router
 
-app = FastAPI(title="Wordle project")
+app = FastAPI(title="Wordle API")
 
 app.include_router(main_router, prefix="/api")
 
