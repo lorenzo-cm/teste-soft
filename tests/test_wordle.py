@@ -85,10 +85,8 @@ class TestWordleGameLogic:
         for guess in guesses:
             result = wordle_game.guess(guess)
 
-        # After 5 incorrect guesses, game should continue
         assert result["game_over"] is False
 
-        # 6th guess should end the game
         result = wordle_game.guess("grape")
         assert result["game_over"] is True
         assert result["won"] is False
