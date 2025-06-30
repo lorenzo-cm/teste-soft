@@ -5,13 +5,25 @@
 - Lorenzo Carneiro Magalhães
 - Victor de Almeida Nunes Murta
 
-## Wordle API
+Este repositório contém o projeto do jogo Wordle/Termo, desenvolvido como trabalho para a disciplina de Teste de Software.
+
+---
+
+## Estrutura do Projeto
+
+- `backend/` — API em Python (FastAPI)
+- `frontend/` — Interface web (Next.js + React)
+
+---
+
+## Backend
 
 API simples para o jogo Wordle/Termo em Python usando FastAPI.
 
-### Como Executar
+### Como Executar o Backend
 
 ```bash
+cd backend
 pip install -r requirements.txt
 python run_server.py
 ```
@@ -45,9 +57,32 @@ GET /api/v1/wordle/games/{game_id}
 - Máximo 6 tentativas por jogo
 - Palavra revelada quando o jogo termina
 
-## Tecnologias
-
-- Fastapi
+### Tecnologias Backend
+- FastAPI
 - Pydantic
 - Pytest
 - Uvicorn
+
+---
+
+## Frontend
+
+Interface web desenvolvida com Next.js e React.
+
+### Como Executar o Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+A aplicação estará disponível em: `http://localhost:3000`
+
+### Tecnologias Frontend
+- Next.js
+- React
+- Chakra UI
+- TypeScript
+
+---
