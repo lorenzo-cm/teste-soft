@@ -12,7 +12,7 @@ async def create_game():
     return {"game_id": game_id}
 
 
-@wordle_router.post("/games/{game_id}/guess")
+@wordle_router.post("/games/{game_id}/guess", response_model=GuessResponse)
 async def make_guess(game_id: str, guess_request: GuessRequest):
     try:
         result = game_manager.make_guess(game_id, guess_request.word.lower())

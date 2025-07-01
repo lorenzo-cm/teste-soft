@@ -29,6 +29,7 @@ python run_server.py
 ```
 
 Servidor: `http://localhost:8000`
+
 Documentação: `http://localhost:8000/docs`
 
 ### Endpoints

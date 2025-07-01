@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional
+from typing import List, Optional, Literal
 
 
 class GuessRequest(BaseModel):
@@ -14,11 +14,10 @@ class GameResponse(BaseModel):
     won: bool
     target_word: Optional[str] = None
 
-
 class GuessResponse(BaseModel):
     game_id: str
     guess: str
-    result: List[str]
+    result: List[Literal["correct", "present", "not present"]]
     attempts_used: int
     game_over: bool
     won: bool
