@@ -37,13 +37,14 @@ jobs:
         if: runner.os != 'Windows'
         run: |
           cd frontend
-          nohup npm run coverage & sleep 45
+          nohup npm run coverage & sleep 60
         
       - name: Build and start Next.js with coverage (Windows)
         if: runner.os == 'Windows'
         run: |
           cd frontend
-          start npm run coverage & timeout 45
+          start npm run coverage
+          timeout 45
         
       - name: Start backend for E2E tests (Linux/macOS)
         if: runner.os != 'Windows'
@@ -55,7 +56,8 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           cd backend
-          start python run_server.py & timeout 5
+          start python run_server.py
+          timeout 5
         
       - name: Set up Playwright
         run: |
