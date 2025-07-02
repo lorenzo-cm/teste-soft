@@ -43,6 +43,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           cd frontend
+          cmd
           start npm run dev
           timeout 5
         
@@ -56,6 +57,7 @@ jobs:
         if: runner.os == 'Windows'
         run: |
           cd backend
+          cmd
           start python run_server.py
           timeout 5
         
