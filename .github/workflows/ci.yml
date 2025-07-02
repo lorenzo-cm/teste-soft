@@ -36,15 +36,14 @@ jobs:
       - name: Build and start Next.js with coverage
         run: |
           cd frontend
-          NODE_V8_COVERAGE=.v8coverage npm run build
-          nohup NODE_V8_COVERAGE=.v8coverage npm start & sleep 10
+          nohup npm run coverage & sleep 15
 
       - name: Start backend for E2E tests
         run: |
           cd backend
           nohup python run_server.py & sleep 5
 
-      - name: Run Playwright tests
+      - name: Run Playwright tests (e2e)
         run: |
           cd frontend
           npx playwright install --with-deps
