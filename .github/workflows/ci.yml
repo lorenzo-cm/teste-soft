@@ -44,8 +44,8 @@ jobs:
         run: |
           cd frontend
           Start-Process "npm" "run dev"
-          timeout 5
-        
+          ping -n 1 -w 5000 localhost
+          
       - name: Start backend for E2E tests (Linux/macOS)
         if: runner.os != 'Windows'
         run: |
@@ -57,7 +57,7 @@ jobs:
         run: |
           cd backend
           start python run_server.py
-          timeout 5
+          ping -n 1 -w 5000 localhost
         
       - name: Set up Playwright
         run: |
