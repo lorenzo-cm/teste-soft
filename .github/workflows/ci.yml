@@ -36,7 +36,7 @@ jobs:
       - name: Build and start Next.js with coverage
         run: |
           cd frontend
-          nohup npm run coverage & sleep 15
+          nohup npm run coverage & sleep 30
 
       - name: Start backend for E2E tests
         run: |
