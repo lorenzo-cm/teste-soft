@@ -23,6 +23,28 @@ jobs:
       - name: Run backend tests
         run: pytest --cov=backend --cov-branch --cov-report=xml backend/
 
+      - name: Set up Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install
+
+      - name: Build and start Next.js with coverage
+        run: |
+          cd frontend
+          NODE_V8_COVERAGE=.v8coverage npm run build
+          nohup NODE_V8_COVERAGE=.v8coverage npm start & sleep 10
+
+      - name: Run Playwright tests
+        run: |
+          cd frontend
+          npx playwright install --with-deps
+          npx playwright test --config=playwright.config.ts
+
       - name: Upload results to Codecov
         if: env.ACT != 'true'
         uses: codecov/codecov-action@v5

@@ -38,7 +38,7 @@ export const LetterBox: React.FC<LetterBoxProps> = ({
 
     // --- Animation Effect ---
     useEffect(() => {
-        let timers: NodeJS.Timeout[] = [];
+        const timers: NodeJS.Timeout[] = [];
         if (state === "correct" || state === "present" || state === "absent") {
             // Each letter waits for the previous one to complete
             const startDelay = index * FLIP_PER_LETTER_DELAY;
