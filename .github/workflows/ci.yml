@@ -33,18 +33,18 @@ jobs:
           cd frontend
           npm install
 
-      - name: Build and start Next.js with coverage (Linux/macOS)
+      - name: Start Next.js fast (Linux/macOS)
         if: runner.os != 'Windows'
         run: |
           cd frontend
-          nohup npm run coverage & sleep 60
+          nohup npm run dev & sleep 5
         
-      - name: Build and start Next.js with coverage (Windows)
+      - name: Start Next.js fast (Windows)
         if: runner.os == 'Windows'
         run: |
           cd frontend
-          start npm run coverage
-          timeout 45
+          start npm run dev
+          timeout 5
         
       - name: Start backend for E2E tests (Linux/macOS)
         if: runner.os != 'Windows'
