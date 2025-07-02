@@ -87,3 +87,23 @@ A aplicação estará disponível em: `http://localhost:3000`
 - TypeScript
 
 ---
+
+### Como testar o Backend
+
+Instale as dependências conforme mostrado acima.
+A partir do diretório raiz, execute
+
+```bash
+pytest --cov=backend --cov-branch --cov-report=xml backend/
+```
+
+### Como testar o Frontend (E2E)
+
+Garanta que o front e back estejam rodando de acordo com os comandos descritos em "Como Executar".
+Depois execute:
+
+```bash
+cd frontend
+npx playwright install
+npx playwright test --config=playwright.config.ts
+```
