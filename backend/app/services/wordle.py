@@ -1,11 +1,14 @@
 import random
+import os
 
+# Injection for E2E tests
+TEST: bool = bool(os.getenv("TEST", "false").lower())
 
 class Wordle:
     def __init__(self, word_list, game_id):
         self.game_id = game_id
         self.word_list = word_list
-        self.target_word = random.choice(self.word_list).lower()
+        self.target_word = random.choice(self.word_list).lower() if not TEST else "carro"
         self.attempts = []  # guess and result
         self.max_attempts = 6
         self.game_over = False
