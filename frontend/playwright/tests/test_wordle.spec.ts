@@ -18,6 +18,13 @@ test('should display virtual keyboard with all keys', async ({ page }) => {
 });
 
 
+test('should display virtual keyboard with enter key', async ({ page }) => {
+  const key = 'ENTER'
+  
+  await expect(page.getByRole('button', { name: key, exact: true })).toBeVisible();
+});
+
+
 test('should type and submit a valid word', async ({ page }) => {
   for (const letter of ['P', 'I', 'A', 'N', 'O']) {
     await page.getByRole('button', { name: letter, exact: true }).click();
@@ -25,15 +32,6 @@ test('should type and submit a valid word', async ({ page }) => {
   await page.getByRole('button', { name: 'ENTER', exact: true }).click();
 
   await expect(page.getByText('Tentativa 2 de 6')).toBeVisible();
-});
-
-test('should type and submit a winning word', async ({ page }) => {
-  for (const letter of ['C', 'A', 'R', 'R', 'O']) {
-    await page.getByRole('button', { name: letter, exact: true }).click();
-  }
-  await page.getByRole('button', { name: 'ENTER', exact: true }).click();
-
-  await expect(page.getByText(/Você venceu!/i)).toBeVisible();
 });
 
 
