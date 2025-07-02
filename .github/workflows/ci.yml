@@ -43,12 +43,16 @@ jobs:
           cd backend
           nohup python run_server.py & sleep 5
 
+      - name: Set up Playwright
+        run: |
+          cd frontend
+          npx playwright install
+
       - name: Run Playwright tests (e2e)
         run: |
           cd frontend
-          npx playwright install --with-deps
           npx playwright test --config=playwright.config.ts
-
+  
       - name: Upload results to Codecov
         if: env.ACT != 'true'
         uses: codecov/codecov-action@v5
